@@ -31,6 +31,6 @@ use : docker-compose up -d --build
     --> (only in solution) - docker and db files.  
 
 ## Design
-![Structure](https://drive.google.com/file/d/1yIGsf0Dy4UtiQsHkTmpcmkrmtUxvKQFw/view?usp=sharing)
+![](https://drive.google.com/file/d/1yIGsf0Dy4UtiQsHkTmpcmkrmtUxvKQFw/view?usp=sharing)
 
 
