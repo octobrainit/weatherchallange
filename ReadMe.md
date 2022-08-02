@@ -1,7 +1,7 @@
 # Technical challange Weather API
 
 ## Look the challange here
-    * Item 1 [Markdown Live Preview](https://docs.google.com/document/d/1XqSOmapSBmONGzvBVmK8zv-G_OOA38Bc/edit?usp=sharing&ouid=107534122392575418381&rtpof=true&sd=true)
+    * Item 1 (https://docs.google.com/document/d/1XqSOmapSBmONGzvBVmK8zv-G_OOA38Bc/edit?usp=sharing&ouid=107534122392575418381&rtpof=true&sd=true)
 
 ## Structure of projects
 
@@ -31,6 +31,6 @@ use : docker-compose up -d --build
     6. (only in solution) - docker and db files.
 
 ## Design
-[Markdown Live Preview](https://drive.google.com/file/d/1yIGsf0Dy4UtiQsHkTmpcmkrmtUxvKQFw/view?usp=sharing)
+Structure(https://drive.google.com/file/d/1yIGsf0Dy4UtiQsHkTmpcmkrmtUxvKQFw/view?usp=sharing)
 
 
