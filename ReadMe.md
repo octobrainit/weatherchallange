@@ -18,17 +18,17 @@
 
 ## Structure of paths
 
-1. some files about docker to use db and cache easy
+*1. some files about docker to use db and cache easy
 ```
 use : docker-compose up -d --build
 ```
-2.src
-    1. Presentation - weather.api
-    2. Application - weather.domain 
-    3. Infraestructure - weather.db.slqserver/weather.cache.redis
-    4. Tests - weather.domain.test
-    5. Shared - weather.domain.shared/weather.shared.logger
-    6. (only in solution) - docker and db files.
+*2.src
+**    1. Presentation - weather.api
+**    2. Application - weather.domain 
+**    3. Infraestructure - weather.db.slqserver/weather.cache.redis
+**    4. Tests - weather.domain.test
+**    5. Shared - weather.domain.shared/weather.shared.logger
+**    6. (only in solution) - docker and db files.
 
 ## Design
 Structure(https://drive.google.com/file/d/1yIGsf0Dy4UtiQsHkTmpcmkrmtUxvKQFw/view?usp=sharing)
