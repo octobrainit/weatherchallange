@@ -22,15 +22,15 @@
 ```
 use : docker-compose up -d --build
 ```
-->src
-    -->1. Presentation - weather.api
-    -->2. Application - weather.domain
-    -->3. Infraestructure - weather.db.slqserver/weather.cache.redis
-    -->4. Tests - weather.domain.test__
-    -->5. Shared - weather.domain.shared/weather.shared.logger
-    -->6. (only in solution) - docker and db files.
+->src  
+    --> Presentation - weather.api  
+    --> Application - weather.domain  
+    --> Infraestructure - weather.db.slqserver/weather.cache.redis  
+    --> Tests - weather.domain.test  
+    --> Shared - weather.domain.shared/weather.shared.logger  
+    --> (only in solution) - docker and db files.  
 
 ## Design
-[Structure](https://drive.google.com/file/d/1yIGsf0Dy4UtiQsHkTmpcmkrmtUxvKQFw/view?usp=sharing)
+![Structure](https://drive.google.com/file/d/1yIGsf0Dy4UtiQsHkTmpcmkrmtUxvKQFw/view?usp=sharing)
 
 
