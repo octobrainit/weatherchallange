@@ -1,0 +1,21 @@
+version: "3.3"
+services:
+    database:
+        image: mcr.microsoft.com/mssql/server:2019-latest
+        container_name: db
+        working_dir: /usr/src/app
+        command: ./entrypoint.sh
+        volumes: 
+            - ./:/usr/src/app
+        ports:
+          - 1433:1433
+        environment:
+          - ACCEPT_EULA=Y
+          - MSSQL_PID=Express
+          - SA_PASSWORD=Pl33nkml1.
+    cache:
+        image: redis
+        restart: always
+        ports:
+            - '6379:6379'
+        command: redis-server  --requirepass eYVX7EwVmmxKPCDmwMtyKVge8oLd2t81

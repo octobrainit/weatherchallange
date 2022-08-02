@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>df58e689-1c97-42cc-94b2-4c9efd6e0b97</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="5.1.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\2-Application\Domain\weather.domain\weather.domain.csproj" />
+    <ProjectReference Include="..\..\3-Infraestructure\weather.cache.redis\weather.cache.redis.csproj" />
+    <ProjectReference Include="..\..\3-Infraestructure\weather.db.sqlserver\weather.db.sqlserver.csproj" />
+    <ProjectReference Include="..\..\5-Shared\weather.domain.shared\weather.domain.shared.csproj" />
+    <ProjectReference Include="..\..\5-Shared\weather.shared.logger\weather.shared.logger.csproj" />
+  </ItemGroup>
+
+</Project>
