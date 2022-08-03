@@ -21,7 +21,7 @@ namespace weather.db.sqlserver.Repository
             return await ExecuteMethod(async (command) => {
 
                 var dateStart = $"{command.Date:yyyy-MM-dd HH:mm:ss}";
-                var data = await con.QueryAsync<WeatherDTO>($"Select * from weather where Date = @date and SensorType = @sensorType", new { date = dateStart, sensorType = command.SensorType.ToString() });
+                var data = await con.QueryAsync<WeatherDTO>($"Select * from weather NOLOCK  where Date = @date and SensorType = @sensorType ", new { date = dateStart, sensorType = command.SensorType.ToString() });
 
                 var list = data.Select(item => item.ConvertToDomainEntity()).ToList();
 
