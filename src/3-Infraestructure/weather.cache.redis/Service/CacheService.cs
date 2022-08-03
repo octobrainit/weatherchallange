@@ -23,27 +23,42 @@ namespace weather.cache.redis.Service
         }
         public async Task<EventResponse<List<Weather>>> GetWeatherByDate(GetWeatherDataCommand data)
         {
-            var db = _redis.GetDatabase();
-            var key = $"{data.Date:yyyy-MM-dd HH:mm:ss}_{data.SensorType}";
-            var response = await db.StringGetAsync(key);
-            if (response.HasValue)
-                return EventResponse<List<Weather>>.CreateResponse(JsonConvert.DeserializeObject<List<Weather>>(response));
+            //when we don't have a abstraction, appear try and catches in a lot of places
+            try
+            {
+                var db = _redis.GetDatabase();
+                var key = $"{data.Date:yyyy-MM-dd HH:mm:ss}_{data.SensorType}";
+                var response = await db.StringGetAsync(key);
+                return response.HasValue ? 
+                        EventResponse<List<Weather>>.CreateResponse(JsonConvert.DeserializeObject<List<Weather>>(response)) :
+                        EventResponse<List<Weather>>.CreateResponse(new List<Weather>());
+            }
+            catch (Exception ex)
+            {
 
-            return EventResponse<List<Weather>>.CreateResponse(new List<Weather>());
-
+                return EventResponse<List<Weather>>.ResponseWithMessage("Some error ocurred on cache: "+ ex.Message);
+            }
         }
 
         public async Task<EventResponse<Weather>> PushWeatherOnCache(List<Weather> data)
         {
-            var db = _redis.GetDatabase();
-
-            foreach (Weather weather in data)
+            try
             {
-                var dataConverted = JsonConvert.SerializeObject(data);
-                await db.StringSetAsync($"{weather.Date.ToString("yyyy-MM-dd HH:mm:ss")}_{weather.Sensor}", dataConverted);
-            }
+                var db = _redis.GetDatabase();
 
-            return EventResponse<Weather>.CreateResponse(null);
+                foreach (Weather weather in data)
+                {
+                    var dataConverted = JsonConvert.SerializeObject(data);
+                    await db.StringSetAsync($"{weather.Date.ToString("yyyy-MM-dd HH:mm:ss")}_{weather.Sensor}", dataConverted);
+                }
+
+                return EventResponse<Weather>.CreateResponse(null);
+            }
+            catch (Exception ex)
+            {
+                return EventResponse<Weather>.ResponseWithMessage("Some error ocurred on cache: " + ex.Message);
+            }
+            
         }
     }
 }
